@@ -587,12 +587,12 @@ button {
   position: absolute;
   inset: 0;
   z-index: 2;
-  opacity: 0.78;
+  opacity: 0.55;
 }
 
-.recipe-overlay--dessert { background: #ef2731; }
-.recipe-overlay--utama   { background: #a9bd4c; }
-.recipe-overlay--minuman { background: #ce7b27; }
+.recipe-overlay--dessert { background: #c0200d; }
+.recipe-overlay--utama   { background: #6b7a2d; }
+.recipe-overlay--minuman { background: #c4973a; }
 
 .recipe-name {
   position: absolute;
@@ -911,6 +911,20 @@ button {
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+/* Gradient kanan: fade foto ke warna merah footer */
+.footer-photo-side::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 30%,
+    rgba(214, 55, 37, 0.55) 65%,
+    #d63725 100%
+  );
+  pointer-events: none;
 }
 
 .footer-photo-glow {
@@ -1618,5 +1632,47 @@ button {
     max-width: 82%;
     transform: translateY(-50%);
     text-align: right;
+  }
+}
+
+/* =====================================================
+   MOBILE SMALL — extra size fixes (≤ 480px)
+===================================================== */
+@media (max-width: 480px) {
+  .section-heading {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+
+  .recipe-name {
+    font-size: clamp(18px, 5.5vw, 30px);
+  }
+
+  .recipe-featured-title {
+    font-size: clamp(22px, 7vw, 34px);
+  }
+
+  .footer-heading {
+    font-size: clamp(18px, 5.5vw, 30px);
+  }
+
+  .footer-text {
+    font-size: 14px;
+  }
+
+  .hero-tagline {
+    font-size: clamp(11px, 3.5vw, 16px);
+  }
+
+  .hero-desc {
+    font-size: clamp(14px, 4vw, 18px);
+  }
+
+  .product-label {
+    font-size: clamp(12px, 3.8vw, 18px);
+  }
+
+  .cta-label,
+  .text-cta {
+    font-size: clamp(11px, 3.5vw, 16px);
   }
 }
