@@ -913,20 +913,6 @@ button {
   display: block;
 }
 
-/* Gradient kanan: fade foto ke warna merah footer */
-.footer-photo-side::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    transparent 30%,
-    rgba(214, 55, 37, 0.55) 65%,
-    #d63725 100%
-  );
-  pointer-events: none;
-}
-
 .footer-photo-glow {
   position: absolute;
   inset: 0;
