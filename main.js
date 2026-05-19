@@ -96,6 +96,13 @@ function initCarousel({ trackId, nextId, prevId, getVisible }) {
 function isMobile() { return window.innerWidth <= 768; }
 
 initCarousel({
+  trackId: 'heroTrack',
+  nextId: 'heroNext',
+  prevId: 'heroPrev',
+  getVisible: () => 1
+});
+
+initCarousel({
   trackId: 'productsTrack',
   nextId: 'productsNext',
   getVisible: () => {
@@ -106,6 +113,13 @@ initCarousel({
 });
 
 initCarousel({
+  trackId: 'featuredRecipesTrack',
+  nextId: 'featuredRecipesNext',
+  prevId: 'featuredRecipesPrev',
+  getVisible: () => 1
+});
+
+initCarousel({
   trackId: 'recipesTrack',
   nextId: 'recipesNext',
   getVisible: () => {
@@ -113,6 +127,13 @@ initCarousel({
     if (window.innerWidth <= 768) return 1;
     return 3;
   }
+});
+
+initCarousel({
+  trackId: 'articlesTrack',
+  nextId: 'articlesNext',
+  prevId: 'articlesPrev',
+  getVisible: () => 1
 });
 
 /* =====================================================
@@ -144,7 +165,10 @@ function addSwipe(trackId) {
 }
 
 addSwipe('productsTrack');
+addSwipe('heroTrack');
+addSwipe('featuredRecipesTrack');
 addSwipe('recipesTrack');
+addSwipe('articlesTrack');
 
 /* =====================================================
    INTERSECTION OBSERVER — fade-in on scroll
@@ -159,7 +183,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll(
-  '.product-card, .recipe-card, .article-card, .recipe-featured, .hero-text, .hero-media'
+  '.product-card, .recipe-card, .article-card, .recipe-featured, .article-featured, .hero-text, .hero-media'
 ).forEach(el => {
   el.classList.add('fade-in');
   observer.observe(el);
