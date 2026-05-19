@@ -891,7 +891,7 @@ button {
 .footer-bar {
   display: flex;
   align-items: stretch;
-  height: 160px;
+  height: 200px;
   background: url('assets/layers/rectangle-7.png') center / cover no-repeat, #d63725;
   border-radius: 0 90px 0 0;
   overflow: hidden;
@@ -1345,7 +1345,7 @@ button {
 }
 
 .footer-bar {
-  height: clamp(130px, 8.3vw, 160px);
+  height: clamp(170px, 10.4vw, 200px);
   border-radius: 0 clamp(36px, 4.7vw, 90px) 0 0;
 }
 
