@@ -1940,7 +1940,7 @@ button {
     transition: none;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
-    touch-action: pan-x;
+    touch-action: pan-x pan-y;
   }
 
   .hero-track::-webkit-scrollbar {

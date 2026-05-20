@@ -144,19 +144,22 @@ function addSwipe(trackId) {
   if (!track) return;
 
   let startX = 0;
+  let startY = 0;
   let isDragging = false;
 
   track.addEventListener('touchstart', e => {
     startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
     isDragging = true;
   }, { passive: true });
 
   track.addEventListener('touchend', e => {
     if (!isDragging) return;
     isDragging = false;
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) < 40) return;
-    if (diff > 0) {
+    const diffX = startX - e.changedTouches[0].clientX;
+    const diffY = startY - e.changedTouches[0].clientY;
+    if (Math.abs(diffX) < 40 || Math.abs(diffX) <= Math.abs(diffY)) return;
+    if (diffX > 0) {
       track.scrollLeft += track.clientWidth * 0.8;
     } else {
       track.scrollLeft -= track.clientWidth * 0.8;
