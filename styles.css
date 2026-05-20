@@ -1187,21 +1187,35 @@ button {
   }
 
   .recipes-section .carousel-track {
-    gap: 16px;
+    gap: 0;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    transform: none !important;
+    transition: none;
+    touch-action: pan-x pan-y;
   }
 
   .recipes-section .carousel-track::-webkit-scrollbar { display: none; }
 
   .recipe-card {
-    flex: 0 0 calc(75% - 8px);
+    flex: 0 0 100%;
     scroll-snap-align: start;
   }
 
   .recipes-carousel-outer .arrow-btn { display: none; }
+
+  .recipe-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: fit-content;
+    margin: 18px auto 0;
+    color: #ef2731;
+    opacity: 0.9;
+  }
 
   .recipes-footer { justify-content: flex-start; }
 
@@ -1979,6 +1993,17 @@ button {
     display: none;
   }
 
+  .hero-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: fit-content;
+    margin: 16px auto 0;
+    color: #ef2731;
+    opacity: 0.9;
+  }
+
   .hero-slide {
     scroll-snap-align: start;
     scroll-snap-stop: always;
@@ -1986,7 +2011,26 @@ button {
 }
 
 @media (max-width: 768px) {
+  .hero-track-clip {
+    overflow: hidden;
+  }
+
+  .hero-track {
+    gap: 0;
+    transform: none !important;
+    transition: none;
+    touch-action: pan-x pan-y;
+  }
+
+  .hero-slide {
+    flex: 0 0 100%;
+  }
+
   .products-section .carousel-outer {
+    overflow: hidden;
+  }
+
+  .recipes-carousel-outer {
     overflow: hidden;
   }
 
@@ -1997,12 +2041,28 @@ button {
     touch-action: pan-x pan-y;
   }
 
+  .recipes-section .carousel-track {
+    gap: 0;
+    transform: none !important;
+    transition: none;
+    touch-action: pan-x pan-y;
+  }
+
   .products-section .product-card {
+    flex: 0 0 100%;
+  }
+
+  .recipes-section .recipe-card {
     flex: 0 0 100%;
   }
 
   .products-section .product-link {
     width: min(72vw, 290px);
+    margin: 0 auto;
+  }
+
+  .recipes-section .recipe-card-link {
+    width: min(78vw, 330px);
     margin: 0 auto;
   }
 }
