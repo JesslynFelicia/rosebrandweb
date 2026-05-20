@@ -295,6 +295,10 @@ button {
   overflow: hidden;
 }
 
+.swipe-hint {
+  display: none;
+}
+
 /* =====================================================
    HERO
 ===================================================== */
@@ -1127,21 +1131,49 @@ button {
   .products-section { padding: 48px 0 64px; }
 
   .products-section .carousel-track {
-    gap: 16px;
+    gap: 0;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    transform: none !important;
+    transition: none;
+    touch-action: pan-x pan-y;
   }
 
   .products-section .carousel-track::-webkit-scrollbar { display: none; }
 
   .product-card {
-    flex: 0 0 calc(50% - 8px);
+    flex: 0 0 100%;
     scroll-snap-align: start;
   }
 
   .products-section .arrow-btn { display: none; }
+
+  .product-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: fit-content;
+    margin: 18px auto 0;
+    color: #ef2731;
+    opacity: 0.9;
+  }
+
+  .swipe-hint-line {
+    width: 30px;
+    height: 2px;
+    border-radius: 999px;
+    background: rgba(239, 39, 49, 0.28);
+  }
+
+  .swipe-hint-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+  }
 
   /* Recipes */
   .recipes-section { padding: 48px 0 64px; }
@@ -1950,5 +1982,27 @@ button {
   .hero-slide {
     scroll-snap-align: start;
     scroll-snap-stop: always;
+  }
+}
+
+@media (max-width: 768px) {
+  .products-section .carousel-outer {
+    overflow: hidden;
+  }
+
+  .products-section .carousel-track {
+    gap: 0;
+    transform: none !important;
+    transition: none;
+    touch-action: pan-x pan-y;
+  }
+
+  .products-section .product-card {
+    flex: 0 0 100%;
+  }
+
+  .products-section .product-link {
+    width: min(72vw, 290px);
+    margin: 0 auto;
   }
 }
